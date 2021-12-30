@@ -403,7 +403,8 @@ static char **readlines(
         }
         continue;
       }
-      if (isspace(c)) ch = ' ';
+      // Exclude non-breaking space from the class of space chars
+      if (isspace(c) && isascii(c)) ch = ' ';
       else blank = 0;
       additem(cbuf, &ch, errmsg);
       if (*errmsg) goto rlcleanup;
