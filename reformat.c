@@ -336,7 +336,7 @@ char **reformat(
     if (end - *line < affix) {
       sprintf(errmsg,
               "Line %d shorter than <prefix> + <suffix> = %d + %d = %d\n",
-              line - inlines + 1, prefix, suffix, affix);
+              (int)(line - inlines + 1), prefix, suffix, affix);
       goto rfcleanup;
     }
     end -= suffix;
